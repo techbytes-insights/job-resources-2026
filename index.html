@@ -10,7 +10,7 @@
     :root {
       --bg: #0a0a0f; --surface: #12121a; --surface2: #1a1a26;
       --border: rgba(255,255,255,0.07); --accent1: #7c3aed; --accent2: #06b6d4;
-      --text: #e8e8f0; --muted: #6b6b85; --card-hover: rgba(124,58,237,0.08);
+      --text: #e8e8f0; --muted: #6b6b85;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
@@ -23,43 +23,43 @@
     .orb1 { width: 600px; height: 600px; background: var(--accent1); top: -200px; left: -200px; }
     .orb2 { width: 400px; height: 400px; background: var(--accent2); bottom: 10%; right: -100px; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
-    header { padding: 80px 0 60px; text-align: center; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3);
-      color: #a78bfa; font-size: 13px; font-weight: 500; padding: 6px 14px;
-      border-radius: 100px; margin-bottom: 28px; letter-spacing: 0.5px;
-    }
+    header { padding: 80px 0 40px; text-align: center; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3); color: #a78bfa; font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; }
     .badge span { width: 6px; height: 6px; border-radius: 50%; background: #a78bfa; display: inline-block; animation: pulse 2s ease-in-out infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
     h1 { font-family: 'Syne', sans-serif; font-size: clamp(36px, 6vw, 72px); font-weight: 800; line-height: 1.05; letter-spacing: -2px; margin-bottom: 20px; }
     h1 .line2 { background: linear-gradient(135deg, var(--accent1), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .subtitle { font-size: 18px; color: var(--muted); max-width: 520px; margin: 0 auto 40px; line-height: 1.6; font-weight: 300; }
+    .subtitle { font-size: 18px; color: var(--muted); max-width: 520px; margin: 0 auto 0; line-height: 1.6; font-weight: 300; }
+
+    /* Social Banner */
+    .social-banner { background: linear-gradient(135deg, rgba(10,102,194,0.1), rgba(255,0,0,0.05)); border: 1px solid rgba(10,102,194,0.25); border-radius: 20px; padding: 28px 36px; margin: 40px 0 60px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .social-banner-text { flex: 1; min-width: 200px; }
+    .social-banner-text .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #60a5fa; font-family: monospace; margin-bottom: 6px; }
+    .social-banner-text h3 { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .social-banner-text p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+    .social-btns { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
+    .btn-linkedin { display: inline-flex; align-items: center; gap: 8px; background: #0a66c2; color: white; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 10px; transition: all 0.2s; box-shadow: 0 4px 16px rgba(10,102,194,0.35); white-space: nowrap; }
+    .btn-linkedin:hover { background: #0d8ecf; transform: translateY(-1px); }
+    .btn-youtube { display: inline-flex; align-items: center; gap: 8px; background: #ff0000; color: white; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 10px; transition: all 0.2s; box-shadow: 0 4px 16px rgba(255,0,0,0.3); white-space: nowrap; }
+    .btn-youtube:hover { background: #cc0000; transform: translateY(-1px); }
+
     .section { margin-bottom: 80px; }
     .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
     .section-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
     .section-title { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
     .section-count { margin-left: auto; font-size: 13px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); padding: 4px 12px; border-radius: 100px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; }
-    .card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-      padding: 16px 18px; display: flex; align-items: center; gap: 14px;
-      text-decoration: none; color: var(--text); transition: all 0.2s; position: relative; overflow: hidden;
-    }
-    .card::before { content: ''; position: absolute; inset: 0; background: var(--card-hover); opacity: 0; transition: opacity 0.2s; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text); transition: all 0.2s; position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; inset: 0; background: rgba(124,58,237,0.08); opacity: 0; transition: opacity 0.2s; }
     .card:hover { border-color: rgba(124,58,237,0.3); transform: translateY(-1px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
     .card:hover::before { opacity: 1; }
     .card-logo { width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; font-family: 'Syne', sans-serif; flex-shrink: 0; position: relative; z-index: 1; color: white; }
     .card-info { flex: 1; position: relative; z-index: 1; min-width: 0; }
-    .card-name { font-weight: 600; font-size: 15px; white-space: normal; word-break: break-word; line-height: 1.3; }
+    .card-name { font-weight: 600; font-size: 15px; line-height: 1.3; }
     .card-url { font-size: 12px; color: var(--muted); margin-top: 3px; }
     .card-arrow { color: var(--muted); font-size: 16px; position: relative; z-index: 1; transition: transform 0.2s, color 0.2s; flex-shrink: 0; }
     .card:hover .card-arrow { transform: translate(2px, -2px); color: var(--accent2); }
-    .tip-box {
-      background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.05));
-      border: 1px solid rgba(124,58,237,0.2); border-radius: 16px; padding: 32px;
-      margin-bottom: 80px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center;
-    }
+    .tip-box { background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.05)); border: 1px solid rgba(124,58,237,0.2); border-radius: 16px; padding: 32px; margin-bottom: 80px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
     .tip-number { font-family: 'Syne', sans-serif; font-size: 64px; font-weight: 800; color: rgba(124,58,237,0.25); line-height: 1; }
     .tip-content h3 { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
     .tip-content p { color: var(--muted); line-height: 1.7; font-size: 15px; }
@@ -69,19 +69,6 @@
     .resource-pill:hover { border-color: rgba(124,58,237,0.4); background: var(--surface2); }
     .resource-pill-icon { font-size: 20px; }
     .resource-pill-label { color: var(--muted); font-size: 12px; font-weight: 400; display: block; margin-top: 1px; }
-    .linkedin-banner {
-      background: linear-gradient(135deg, rgba(10,102,194,0.12), rgba(10,102,194,0.04));
-      border: 1px solid rgba(10,102,194,0.3); border-radius: 20px;
-      padding: 36px 40px; margin-bottom: 80px;
-      display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
-    }
-    .linkedin-icon { width: 64px; height: 64px; border-radius: 16px; background: linear-gradient(135deg, #0a66c2, #0d8ecf); display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; box-shadow: 0 8px 24px rgba(10,102,194,0.3); }
-    .linkedin-text { flex: 1; min-width: 200px; }
-    .linkedin-text .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #60a5fa; font-family: monospace; margin-bottom: 6px; }
-    .linkedin-text h3 { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
-    .linkedin-text p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.5; }
-    .linkedin-btn { display: inline-flex; align-items: center; gap: 10px; background: #0a66c2; color: white; text-decoration: none; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 12px; white-space: nowrap; flex-shrink: 0; transition: all 0.2s; box-shadow: 0 4px 20px rgba(10,102,194,0.4); }
-    .linkedin-btn:hover { background: #0d8ecf; transform: translateY(-1px); }
     footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--muted); font-size: 14px; position: relative; z-index: 1; }
     .divider { height: 1px; background: var(--border); margin: 80px 0; }
     .icon-purple { background: rgba(124,58,237,0.15); }
@@ -102,11 +89,11 @@
       .grid { grid-template-columns: 1fr !important; }
       .card { padding: 14px 16px; }
       .card-name { font-size: 16px; }
-      .card-url { font-size: 13px; }
       .card-logo { width: 48px; height: 48px; font-size: 16px; }
       .resources-bar { flex-direction: column; }
-      .linkedin-banner { flex-direction: column; padding: 24px; }
-      .linkedin-btn { width: 100%; justify-content: center; }
+      .social-banner { flex-direction: column; padding: 24px; }
+      .social-btns { width: 100%; }
+      .btn-linkedin, .btn-youtube { flex: 1; justify-content: center; }
     }
   </style>
 </head>
@@ -121,8 +108,25 @@
       <p class="subtitle">Handpicked platforms across freelancing, tech, design, writing, and marketing — all in one place.</p>
     </header>
 
-    <div class="linkedin-banner">
-      <div class="linkedin-icon">💼</div>
+    <!-- Social Banner -->
+    <div class="social-banner">
+      <div style="font-size:36px;flex-shrink:0;">🚀</div>
+      <div class="social-banner-text">
+        <div class="label">Want more resources like this?</div>
+        <h3>Follow TechBytes Insights</h3>
+        <p>Regular drops of curated tools, career resources, AI news &amp; dev insights.</p>
+      </div>
+      <div class="social-btns">
+        <a href="https://www.linkedin.com/in/techbytes-insights-41a46b412" target="_blank" rel="noopener" class="btn-linkedin">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://www.youtube.com/@TechBytesExplained" target="_blank" rel="noopener" class="btn-youtube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </a>
+      </div>
+    </div>
 
     <section class="section">
       <div class="section-header">
@@ -212,17 +216,6 @@
         </a>
       </div>
     </section>
-
-      <div class="linkedin-text">
-        <div class="label">Want more resources like this?</div>
-        <h3>Follow TechBytes Insights</h3>
-        <p>Regular drops of curated tools, career resources, AI news & dev insights — straight to your LinkedIn feed.</p>
-      </div>
-      <a href="https://www.linkedin.com/in/techbytes-insights-41a46b412" target="_blank" rel="noopener" class="linkedin-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        Follow on LinkedIn
-      </a>
-    </div>
 
     <footer>
       <p>Curated remote work resources for 2026 · Built with ❤️ for job seekers</p>
