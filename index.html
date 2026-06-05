@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Remote Work & Job Resources 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface2: #1a1a26;
+      --border: rgba(255,255,255,0.07);
+      --accent1: #7c3aed;
+      --accent2: #06b6d4;
+      --accent3: #f59e0b;
+      --accent4: #10b981;
+      --accent5: #f43f5e;
+      --text: #e8e8f0;
+      --muted: #6b6b85;
+      --card-hover: rgba(124,58,237,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Background grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(124,58,237,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,58,237,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glow orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb1 { width: 600px; height: 600px; background: var(--accent1); top: -200px; left: -200px; }
+    .orb2 { width: 400px; height: 400px; background: var(--accent2); bottom: 10%; right: -100px; }
+
+    /* Layout */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    /* Header */
+    header {
+      padding: 80px 0 60px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.3);
+      color: #a78bfa;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      letter-spacing: 0.5px;
+    }
+    .badge span { width: 6px; height: 6px; border-radius: 50%; background: #a78bfa; display: inline-block; animation: pulse 2s ease-in-out infinite; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+    h1 .line2 {
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* Search */
+    .search-wrap {
+      max-width: 480px;
+      margin: 0 auto 60px;
+      position: relative;
+    }
+    .search-wrap input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 20px 14px 48px;
+      font-size: 15px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-wrap input:focus { border-color: rgba(124,58,237,0.5); }
+    .search-wrap input::placeholder { color: var(--muted); }
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 16px;
+      pointer-events: none;
+    }
+
+    /* Category tabs */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 64px;
+    }
+    .tab {
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
+    .tab.active { background: var(--accent1); border-color: var(--accent1); color: white; }
+
+    /* Sections */
+    .section { margin-bottom: 80px; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .section-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .section-count {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--muted);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--card-hover);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .card:hover {
+      border-color: rgba(124,58,237,0.3);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .card:hover::before { opacity: 1; }
+
+    .card-logo {
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: 'Syne', sans-serif;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+
+    .card-info { flex: 1; position: relative; z-index: 1; min-width: 0; }
+    .card-name {
+      font-weight: 600;
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-url {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-arrow {
+      color: var(--muted);
+      font-size: 14px;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.2s, color 0.2s;
+    }
+    .card:hover .card-arrow { transform: translate(2px, -2px); color: var(--accent2); }
+
+    /* Special section: General job boards */
+    .general-section .grid {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    /* Tip box */
+    .tip-box {
+      background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.05));
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 80px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .tip-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 64px;
+      font-weight: 800;
+      color: rgba(124,58,237,0.25);
+      line-height: 1;
+    }
+    .tip-content h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .tip-content p { color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .tip-content strong { color: #a78bfa; }
+
+    /* Resources bar */
+    .resources-bar {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+    }
+    .resource-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.2s;
+      flex: 1;
+      min-width: 180px;
+    }
+    .resource-pill:hover { border-color: rgba(124,58,237,0.4); background: var(--surface2); }
+    .resource-pill-icon { font-size: 20px; }
+    .resource-pill-label { color: var(--muted); font-size: 12px; font-weight: 400; display: block; margin-top: 1px; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 80px 0;
+    }
+
+    /* Color variants for section icons */
+    .icon-purple { background: rgba(124,58,237,0.15); }
+    .icon-cyan { background: rgba(6,182,212,0.15); }
+    .icon-amber { background: rgba(245,158,11,0.15); }
+    .icon-green { background: rgba(16,185,129,0.15); }
+    .icon-rose { background: rgba(244,63,94,0.15); }
+
+    /* Logo color variants */
+    .logo-purple { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+    .logo-cyan { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+    .logo-amber { background: linear-gradient(135deg, #d97706, #f59e0b); }
+    .logo-green { background: linear-gradient(135deg, #059669, #10b981); }
+    .logo-rose { background: linear-gradient(135deg, #e11d48, #f43f5e); }
+    .logo-blue { background: linear-gradient(135deg, #1d4ed8, #3b82f6); }
+    .logo-orange { background: linear-gradient(135deg, #ea580c, #f97316); }
+
+    /* Animate in */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .tip-box { grid-template-columns: 1fr; gap: 12px; }
+      .tip-number { font-size: 40px; }
+      .general-section .grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+
+  <div class="container">
+    <header class="fade-up">
+      <div class="badge"><span></span> Updated for 2026</div>
+      <h1>Find Your Next<br><span class="line2">Remote Opportunity</span></h1>
+      <p class="subtitle">Handpicked platforms across freelancing, tech, design, writing, and marketing — all in one place.</p>
+
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search platforms..." oninput="filterCards()" />
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" onclick="filterTab('all', this)">All</button>
+        <button class="tab" onclick="filterTab('general', this)">📋 Job Boards</button>
+        <button class="tab" onclick="filterTab('freelancing', this)">💻 Freelancing</button>
+        <button class="tab" onclick="filterTab('ai-tech', this)">🤖 AI & Tech</button>
+        <button class="tab" onclick="filterTab('writing', this)">✍️ Writing</button>
+        <button class="tab" onclick="filterTab('design', this)">🎨 Design</button>
+        <button class="tab" onclick="filterTab('marketing', this)">📱 Marketing</button>
+      </div>
+    </header>
+
+    <!-- General Job Boards -->
+    <section class="section general-section" data-category="general">
+      <div class="section-header">
+        <div class="section-icon icon-cyan">📋</div>
+        <div class="section-title">General Job Boards</div>
+        <div class="section-count">20 platforms</div>
+      </div>
+      <div class="grid" id="generalGrid">
+        <!-- filled by JS -->
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Freelancing -->
+    <section class="section" data-category="freelancing">
+      <div class="section-header">
+        <div class="section-icon icon-purple">💻</div>
+        <div class="section-title">Freelancing Platforms</div>
+        <div class="section-count">10 platforms</div>
+      </div>
+      <div class="grid" id="freelancingGrid"></div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- AI & Tech -->
+    <section class="section" data-category="ai-tech">
+      <div class="section-header">
+        <div class="section-icon icon-green">🤖</div>
+        <div class="section-title">AI & Tech Work</div>
+        <div class="section-count">8 platforms</div>
+      </div>
+      <div class="grid" id="aiGrid"></div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Writing -->
+    <section class="section" data-category="writing">
+      <div class="section-header">
+        <div class="section-icon icon-amber">✍️</div>
+        <div class="section-title">Writing & Content Jobs</div>
+        <div class="section-count">10 platforms</div>
+      </div>
+      <div class="grid" id="writingGrid"></div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Design -->
+    <section class="section" data-category="design">
+      <div class="section-header">
+        <div class="section-icon icon-rose">🎨</div>
+        <div class="section-title">Design & Creative Work</div>
+        <div class="section-count">10 platforms</div>
+      </div>
+      <div class="grid" id="designGrid"></div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Marketing -->
+    <section class="section" data-category="marketing">
+      <div class="section-header">
+        <div class="section-icon icon-cyan">📱</div>
+        <div class="section-title">Social Media & Marketing</div>
+        <div class="section-count">10 platforms</div>
+      </div>
+      <div class="grid" id="marketingGrid"></div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Pro tip -->
+    <div class="tip-box">
+      <div class="tip-number">30</div>
+      <div class="tip-content">
+        <h3>The 30-Day Rule</h3>
+        <p>Most people never take action — they keep scrolling instead of applying. Pick <strong>ONE platform</strong>, build <strong>ONE skill</strong>, and apply <strong>consistently for 30 days</strong>. That's how online income actually starts.</p>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <section style="margin-bottom: 80px;">
+      <div class="section-header">
+        <div class="section-icon icon-purple">🛠️</div>
+        <div class="section-title">Essential Tools</div>
+      </div>
+      <div class="resources-bar">
+        <a href="https://w3schools.com" target="_blank" class="resource-pill">
+          <span class="resource-pill-icon">💡</span>
+          <span>
+            W3Schools
+            <span class="resource-pill-label">Learn to code</span>
+          </span>
+        </a>
+        <a href="https://overleaf.com" target="_blank" class="resource-pill">
+          <span class="resource-pill-icon">📄</span>
+          <span>
+            Overleaf
+            <span class="resource-pill-label">Resume builder</span>
+          </span>
+        </a>
+        <a href="https://kickresume.com" target="_blank" class="resource-pill">
+          <span class="resource-pill-icon">🚀</span>
+          <span>
+            Kickresume
+            <span class="resource-pill-label">AI resume builder</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Curated remote work resources for 2026 · Built with ❤️ for job seekers</p>
+  </footer>
+
+  <script>
+    const data = {
+      general: [
+        { name: "Remotive", url: "https://remotive.com", logo: "Re", color: "logo-cyan" },
+        { name: "Himalayas", url: "https://himalayas.app", logo: "Hi", color: "logo-blue" },
+        { name: "Toptal", url: "https://toptal.com", logo: "To", color: "logo-purple" },
+        { name: "Skip The Drive", url: "https://skipthechive.com", logo: "Sk", color: "logo-green" },
+        { name: "NoDesk", url: "https://nodesk.co", logo: "ND", color: "logo-amber" },
+        { name: "FlexJobs", url: "https://flexjobs.com", logo: "Fl", color: "logo-rose" },
+        { name: "Remote.co", url: "https://remote.co", logo: "Rm", color: "logo-cyan" },
+        { name: "We Work Remotely", url: "https://weworkremotely.com", logo: "WR", color: "logo-blue" },
+        { name: "Remote OK", url: "https://remoteok.com", logo: "RO", color: "logo-green" },
+        { name: "AngelList", url: "https://angel.co", logo: "Al", color: "logo-purple" },
+        { name: "Freelancer", url: "https://freelancer.com", logo: "Fr", color: "logo-amber" },
+        { name: "Working Nomads", url: "https://workingnomads.com", logo: "WN", color: "logo-rose" },
+        { name: "SimplyHired", url: "https://simplyhired.com", logo: "SH", color: "logo-cyan" },
+        { name: "Jobspresso", url: "https://jobspresso.co", logo: "Jp", color: "logo-blue" },
+        { name: "Stack Overflow Jobs", url: "https://stackoverflow.com/jobs", logo: "SO", color: "logo-orange" },
+        { name: "Glassdoor", url: "https://glassdoor.com", logo: "Gd", color: "logo-green" },
+        { name: "Monster", url: "https://monster.com", logo: "Mo", color: "logo-purple" },
+        { name: "Careercloud", url: "https://careercloud.com", logo: "Cc", color: "logo-amber" },
+        { name: "CareerBuilder", url: "https://careerbuilder.com", logo: "CB", color: "logo-rose" },
+        { name: "LinkedIn", url: "https://linkedin.com/jobs", logo: "Li", color: "logo-blue" },
+      ],
+      freelancing: [
+        { name: "Upwork", url: "https://upwork.com", logo: "Up", color: "logo-green" },
+        { name: "Fiverr", url: "https://fiverr.com", logo: "Fi", color: "logo-cyan" },
+        { name: "Freelancer", url: "https://freelancer.com", logo: "Fr", color: "logo-blue" },
+        { name: "Toptal", url: "https://toptal.com", logo: "To", color: "logo-purple" },
+        { name: "PeoplePerHour", url: "https://peopleperhour.com", logo: "PP", color: "logo-amber" },
+        { name: "Guru", url: "https://guru.com", logo: "Gu", color: "logo-rose" },
+        { name: "Contra", url: "https://contra.com", logo: "Co", color: "logo-cyan" },
+        { name: "SolidGigs", url: "https://solidgigs.com", logo: "SG", color: "logo-green" },
+        { name: "Outsourcely", url: "https://outsourcely.com", logo: "Ou", color: "logo-blue" },
+        { name: "99designs", url: "https://99designs.com", logo: "99", color: "logo-purple" },
+      ],
+      aiTech: [
+        { name: "Turing", url: "https://turing.com", logo: "Tu", color: "logo-cyan" },
+        { name: "Lemon.io", url: "https://lemon.io", logo: "Le", color: "logo-green" },
+        { name: "Arc.dev", url: "https://arc.dev", logo: "Ar", color: "logo-blue" },
+        { name: "Braintrust", url: "https://braintrust.com", logo: "Bt", color: "logo-purple" },
+        { name: "Scale AI", url: "https://scale.com", logo: "Sc", color: "logo-amber" },
+        { name: "Invisible AI", url: "https://invisible.co", logo: "Iv", color: "logo-rose" },
+        { name: "DataAnnotation", url: "https://dataannotation.tech", logo: "DA", color: "logo-cyan" },
+        { name: "Outlier AI", url: "https://outlier.ai", logo: "Oa", color: "logo-orange" },
+      ],
+      writing: [
+        { name: "ProBlogger", url: "https://problogger.com/jobs", logo: "Pb", color: "logo-amber" },
+        { name: "Contena", url: "https://contena.co", logo: "Cn", color: "logo-blue" },
+        { name: "BloggingPro", url: "https://bloggingpro.com/jobs", logo: "Bp", color: "logo-green" },
+        { name: "WriterAccess", url: "https://writeraccess.com", logo: "Wa", color: "logo-purple" },
+        { name: "Textbroker", url: "https://textbroker.com", logo: "Tb", color: "logo-rose" },
+        { name: "iWriter", url: "https://iwriter.com", logo: "iW", color: "logo-cyan" },
+        { name: "Verblio", url: "https://verblio.com", logo: "Vb", color: "logo-amber" },
+        { name: "Scripted", url: "https://scripted.com", logo: "Sc", color: "logo-blue" },
+        { name: "Medium Partner Program", url: "https://medium.com", logo: "Md", color: "logo-orange" },
+        { name: "Vocal Media", url: "https://vocal.media", logo: "Vm", color: "logo-green" },
+      ],
+      design: [
+        { name: "Dribbble Jobs", url: "https://dribbble.com/jobs", logo: "Dr", color: "logo-rose" },
+        { name: "Behance Jobs", url: "https://behance.net/joblist", logo: "Be", color: "logo-blue" },
+        { name: "DesignCrowd", url: "https://designcrowd.com", logo: "Dc", color: "logo-purple" },
+        { name: "Working Not Working", url: "https://workingnotworking.com", logo: "WN", color: "logo-cyan" },
+        { name: "Coroflot", url: "https://coroflot.com", logo: "Cf", color: "logo-green" },
+        { name: "ArtStation Jobs", url: "https://artstation.com/jobs", logo: "As", color: "logo-amber" },
+        { name: "Canva Creators", url: "https://canva.com/creators", logo: "Ca", color: "logo-rose" },
+        { name: "99designs", url: "https://99designs.com", logo: "99", color: "logo-blue" },
+        { name: "Creativepool", url: "https://creativepool.com", logo: "Cp", color: "logo-purple" },
+        { name: "Krop", url: "https://krop.com", logo: "Kr", color: "logo-orange" },
+      ],
+      marketing: [
+        { name: "MarketerHire", url: "https://marketerhire.com", logo: "MH", color: "logo-cyan" },
+        { name: "Growth Collective", url: "https://growthcollective.com", logo: "GC", color: "logo-green" },
+        { name: "Mayple", url: "https://mayple.com", logo: "My", color: "logo-purple" },
+        { name: "Hubstaff Talent", url: "https://talent.hubstaff.com", logo: "Hs", color: "logo-blue" },
+        { name: "Clickworker", url: "https://clickworker.com", logo: "Cw", color: "logo-amber" },
+        { name: "Crowd Content", url: "https://crowdcontent.com", logo: "Cc", color: "logo-rose" },
+        { name: "SEOClerk", url: "https://seoclerks.com", logo: "Se", color: "logo-cyan" },
+        { name: "Microworkers", url: "https://microworkers.com", logo: "Mw", color: "logo-green" },
+        { name: "SproutGigs", url: "https://sproutgigs.com", logo: "Sp", color: "logo-blue" },
+        { name: "Respondent", url: "https://respondent.io", logo: "Rp", color: "logo-purple" },
+      ]
+    };
+
+    function makeCard(item) {
+      return `
+        <a href="${item.url}" target="_blank" rel="noopener" class="card" data-name="${item.name.toLowerCase()}" data-url="${item.url.toLowerCase()}">
+          <div class="card-logo ${item.color}">${item.logo}</div>
+          <div class="card-info">
+            <div class="card-name">${item.name}</div>
+            <div class="card-url">${item.url.replace('https://','')}</div>
+          </div>
+          <span class="card-arrow">↗</span>
+        </a>`;
+    }
+
+    document.getElementById('generalGrid').innerHTML = data.general.map(makeCard).join('');
+    document.getElementById('freelancingGrid').innerHTML = data.freelancing.map(makeCard).join('');
+    document.getElementById('aiGrid').innerHTML = data.aiTech.map(makeCard).join('');
+    document.getElementById('writingGrid').innerHTML = data.writing.map(makeCard).join('');
+    document.getElementById('designGrid').innerHTML = data.design.map(makeCard).join('');
+    document.getElementById('marketingGrid').innerHTML = data.marketing.map(makeCard).join('');
+
+    function filterCards() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      document.querySelectorAll('.card').forEach(card => {
+        const match = card.dataset.name.includes(q) || card.dataset.url.includes(q);
+        card.style.display = match ? '' : 'none';
+      });
+      document.querySelectorAll('.section').forEach(sec => {
+        const visible = [...sec.querySelectorAll('.card')].some(c => c.style.display !== 'none');
+        sec.style.display = visible ? '' : 'none';
+      });
+    }
+
+    const categoryMap = {
+      general: '[data-category="general"]',
+      freelancing: '[data-category="freelancing"]',
+      'ai-tech': '[data-category="ai-tech"]',
+      writing: '[data-category="writing"]',
+      design: '[data-category="design"]',
+      marketing: '[data-category="marketing"]',
+    };
+
+    function filterTab(cat, btn) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.section').forEach(sec => {
+        sec.style.display = (cat === 'all' || sec.dataset.category === cat) ? '' : 'none';
+      });
+      document.getElementById('searchInput').value = '';
+      document.querySelectorAll('.card').forEach(c => c.style.display = '');
+    }
+  </script>
+</body>
+</html>
