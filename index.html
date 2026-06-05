@@ -114,29 +114,6 @@
       font-weight: 300;
     }
 
-    /* Category tabs */
-    .tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 64px;
-    }
-    .tab {
-      padding: 8px 18px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--muted);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .tab:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
-    .tab.active { background: var(--accent1); border-color: var(--accent1); color: white; }
-
     /* Sections */
     .section { margin-bottom: 80px; }
 
@@ -375,16 +352,7 @@
       <div class="badge"><span></span> Updated for 2026</div>
       <h1>Find Your Next<br><span class="line2">Remote Opportunity</span></h1>
       <p class="subtitle">Handpicked platforms across freelancing, tech, design, writing, and marketing — all in one place.</p>
-<div class="tabs">
-        <button class="tab active" onclick="filterTab('all', this)">All</button>
-        <button class="tab" onclick="filterTab('general', this)">📋 Job Boards</button>
-        <button class="tab" onclick="filterTab('freelancing', this)">💻 Freelancing</button>
-        <button class="tab" onclick="filterTab('ai-tech', this)">🤖 AI & Tech</button>
-        <button class="tab" onclick="filterTab('writing', this)">✍️ Writing</button>
-        <button class="tab" onclick="filterTab('design', this)">🎨 Design</button>
-        <button class="tab" onclick="filterTab('marketing', this)">📱 Marketing</button>
-      </div>
-    </header>
+</header>
 
     <!-- General Job Boards -->
     <section class="section general-section" data-category="general">
@@ -616,13 +584,7 @@
       design: '[data-category="design"]',
       marketing: '[data-category="marketing"]',
     };
-
-    function filterTab(cat, btn) {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('.section').forEach(sec => {
-        sec.style.display = (cat === 'all' || sec.dataset.category === cat) ? '' : 'none';
-      });
+);
 
 
     }
