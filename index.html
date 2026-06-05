@@ -114,36 +114,6 @@
       font-weight: 300;
     }
 
-    /* Search */
-    .search-wrap {
-      max-width: 480px;
-      margin: 0 auto 60px;
-      position: relative;
-    }
-    .search-wrap input {
-      width: 100%;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 20px 14px 48px;
-      font-size: 15px;
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .search-wrap input:focus { border-color: rgba(124,58,237,0.5); }
-    .search-wrap input::placeholder { color: var(--muted); }
-    .search-icon {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted);
-      font-size: 16px;
-      pointer-events: none;
-    }
-
     /* Category tabs */
     .tabs {
       display: flex;
@@ -405,13 +375,7 @@
       <div class="badge"><span></span> Updated for 2026</div>
       <h1>Find Your Next<br><span class="line2">Remote Opportunity</span></h1>
       <p class="subtitle">Handpicked platforms across freelancing, tech, design, writing, and marketing — all in one place.</p>
-
-      <div class="search-wrap">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="searchInput" placeholder="Search platforms..." oninput="filterCards()" />
-      </div>
-
-      <div class="tabs">
+<div class="tabs">
         <button class="tab active" onclick="filterTab('all', this)">All</button>
         <button class="tab" onclick="filterTab('general', this)">📋 Job Boards</button>
         <button class="tab" onclick="filterTab('freelancing', this)">💻 Freelancing</button>
@@ -644,19 +608,6 @@
     document.getElementById('writingGrid').innerHTML = data.writing.map(makeCard).join('');
     document.getElementById('designGrid').innerHTML = data.design.map(makeCard).join('');
     document.getElementById('marketingGrid').innerHTML = data.marketing.map(makeCard).join('');
-
-    function filterCards() {
-      const q = document.getElementById('searchInput').value.toLowerCase();
-      document.querySelectorAll('.card').forEach(card => {
-        const match = card.dataset.name.includes(q) || card.dataset.url.includes(q);
-        card.style.display = match ? '' : 'none';
-      });
-      document.querySelectorAll('.section').forEach(sec => {
-        const visible = [...sec.querySelectorAll('.card')].some(c => c.style.display !== 'none');
-        sec.style.display = visible ? '' : 'none';
-      });
-    }
-
     const categoryMap = {
       general: '[data-category="general"]',
       freelancing: '[data-category="freelancing"]',
@@ -672,8 +623,8 @@
       document.querySelectorAll('.section').forEach(sec => {
         sec.style.display = (cat === 'all' || sec.dataset.category === cat) ? '' : 'none';
       });
-      document.getElementById('searchInput').value = '';
-      document.querySelectorAll('.card').forEach(c => c.style.display = '');
+
+
     }
   </script>
 </body>
